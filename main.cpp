@@ -22,12 +22,12 @@ template< class T >
 BiList<T>* clear(BiList<T>* h, BiList<T>* e);
 
 template< class T, class F >
-F traverse(F f, BiList<T>* h, BiList<T>* e);
+F traverse(F f, BiList<T>* h, BiList<T>* e); // operator()(T)
 
 template< class T >
 BiList<T>* add(BiList<T>* h, const T& d)
 {
-  BiList<T> * node = new BiList<T>{d, h, nullptr};
+  BiList<T> * node = new BiList<T>{d, h, nullptr}; // T(const T&)
   if (h) {
     h->prev = node;
   }
@@ -48,7 +48,7 @@ BiList<T>* cut(BiList<T>* h)
   if (newHead) {
     newHead->prev = nullptr;
   }
-  delete h;
+  delete h; // ~T()
   return newHead;
 }
 template< class T >
